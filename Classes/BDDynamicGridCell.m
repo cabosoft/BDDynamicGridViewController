@@ -59,6 +59,11 @@
         _gridContainerView = [[UIView alloc] initWithFrame:CGRectZero];
         _gridContainerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight; 
         [self.contentView addSubview:_gridContainerView];
+		
+		self.backgroundView.hidden = YES;
+		self.backgroundColor = [UIColor clearColor];
+//		self.contentView.backgroundColor = [UIColor clearColor];
+//		_gridContainerView.backgroundColor = [UIColor clearColor];
 
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight; 

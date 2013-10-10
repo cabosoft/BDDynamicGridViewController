@@ -35,6 +35,10 @@
     self.onDoubleTap = ^(UIView* view, NSInteger viewIndex){
         NSLog(@"Double tap on %@, at %d", view, viewIndex);
     };
+	
+	[self setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.5]];
+	[self.tableView.backgroundView setHidden:YES];
+	
     [self _demoAsyncDataLoading];
     [self buildBarButtons];
 }
