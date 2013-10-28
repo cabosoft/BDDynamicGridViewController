@@ -38,6 +38,13 @@
 #define kDefaultBorderWidth 5
 
 
+#ifdef NSFoundationVersionNumber_iOS_6_1
+#define SD_IS_IOS7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1)
+#else
+#define SD_IS_IOS7 NO
+#endif
+
+
 
 @interface BDDynamicGridViewController  () <UITableViewDelegate, UITableViewDataSource>{
     UITableView *_tableView;
@@ -379,7 +386,7 @@
 
 - (void)gesture:(UIGestureRecognizer*)gesture view:(UIView**)view viewIndex:(NSInteger*)viewIndex
 {
-	BDDynamicGridCell *cell = (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) ? (BDDynamicGridCell*) [gesture.view.superview superview] : (BDDynamicGridCell*) [gesture.view.superview.superview superview];
+	BDDynamicGridCell *cell = (!SD_IS_IOS7) ? (BDDynamicGridCell*) [gesture.view.superview superview] : (BDDynamicGridCell*) [gesture.view.superview.superview superview];
     
     CGPoint locationInGridContainer = [gesture locationInView:gesture.view];    
     for (int i=0; i < cell.gridContainerView.subviews.count; i++){
@@ -432,9 +439,7 @@
             self.onDoubleTap(view, viewIndex);
         }
     }
-
 }
-
 
 - (void)didSingleTap:(UITapGestureRecognizer*)singleTap
 {
