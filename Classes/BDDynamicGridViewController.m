@@ -362,7 +362,7 @@
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView 
                      withVelocity:(CGPoint)velocity 
-              targetContentOffset:(CGPoint *)targetContentOffset
+              targetContentOffset:(inout CGPoint *)targetContentOffset
 {
 //    DLog(@"will end dragging vel: %@", NSStringFromCGPoint(velocity));
     if (velocity.y > 1.5) {
